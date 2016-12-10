@@ -1,0 +1,109 @@
+/*
+Site Colors:
+    #f2f2f2 - very light grey
+    #cccccc - light grey
+    #999999 - grey
+    #333333 - dark grey
+*/
+
+.head {
+    background: #999999; color: #cccccc;
+    background-size: cover;
+    height: 100px;
+    border-bottom: solid black; border-width: thick;
+}
+
+body {font-family: Verdana, Arial, Helvetica, sans-serif;}
+.check-size {
+    font-size: 90px;
+    text-align: left;
+    color: #cccccc;
+} 
+
+
+/* Removes a very thin outer border at xs breakpoint */
+.table-responsive {
+   border: none;
+}
+
+.dashboard-table {
+    overflow: auto;
+    background-image: none !important;
+    background-color: #fff !important;
+
+}
+table td {margin: 0; padding: 0;}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.table-condensed {
+    max-width: none !important;
+    width: auto !important;
+    word-wrap: suppress !important;;
+}
+
+.table th, .table td { 
+    border-top: none !important; 
+}
+
+.no-border {
+    border: 0;
+    box-shadow: none;
+}
+/* Thick Tables*/
+    table {
+        border-collapse: collapse; 
+    }
+
+    table td, table th {
+        border: thick solid black;
+    }
+
+    table tr:first-child th {
+        border-top: 0;
+    }
+
+    table tr:last-child td {
+        border-bottom: 0;
+    }
+
+    table tr td:first-child,
+    table tr th:first-child {
+        border-left: 0;
+    }
+
+    table tr td:last-child,
+    table tr th:last-child {
+        border-right: 0;
+    }
+
+    th { text-align: center; font-weight: bold; font-family: "courier new";}
+
+/* I'd like JQuery's Autocomplete to inherit width from the input element but 
+ * this doesn't work. 
+ */
+.ui-autocomplete {
+    max-height: 150px;
+    max-width: inherit;
+    width: inherit;
+    overflow-y: auto;
+    overflow-x: auto;
+    background: #f2f2f2;
+    color: #333333;
+}
+
+.message {
+    border: 2px solid darkgreen;
+    color: green; font-weight: bold;
+    margin: 1em 0; padding: 1em;
+}
+
+.error {
+    border: 2px solid darkred;
+    color: red; font-weight: bold;
+    margin: 1em 0; padding: 1em;
+}
+
+
