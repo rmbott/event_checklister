@@ -29,7 +29,7 @@ include("../../includes/layouts/header.php");
                     ?>
                 </div>
                 <div class="form-group">
-                    <input class="btn btn-default pull-right" type="submit" name="submit" value="Host info PDF(s)" form="dashboard" onclick="document.dashboard.action = 'latex_host_info.php'; document.dashboard.target = '_self'; document.dashboard.submit(); return true;">
+                    <input class="btn btn-default pull-right" type="submit" name="submit" value="Event Checklist PDF(s)" form="dashboard" onclick="document.dashboard.action = 'event_checklist_pdf.php'; document.dashboard.target = '_self'; document.dashboard.submit(); return true;">
                     <input class="btn btn-default pull-right" type="submit" name="submit" value="Modify Event(s)" form="dashboard" onclick="document.dashboard.action = 'update_event_contact.php'; document.dashboard.method = 'get'; document.dashboard.target = '_self'; document.dashboard.submit(); return true;">
                     <!-- Consider adding a confirmation warning for the delete button -->
                     <input class="btn btn-default pull-right" type="submit" name="submit" value="Delete Event(s)" form="dashboard" onclick="document.dashboard.action = 'delete_event_contact.php'; document.dashboard.method = 'get'; document.dashboard.target = '_self'; document.dashboard.submit(); return true;">

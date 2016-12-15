@@ -58,9 +58,24 @@ Getting Started
 
     
 
-    LaTeX and Tikz:
+    PDF-overlay dependencies: FPDF, FPDI, and cellfit.php
 
-        LaTeX, pdflatex, and the Tikz package for LaTeX are required. If you are 
-        this running on a hosted site that doesn't have Tikz, you'll have to 
-        copy all of the individual files from the package into the 
-        public_html/pc/latex directory.
+        FPDF        - for generating PDFs in PHP
+        FPDI        - for overlaying an existing PDF with new content
+        cellfit.php - fit text to FPDF cell
+                      (http://www.fpdf.org/en/script/script62.php)
+
+        FPDF is used to generate PDFs from dynamic PHP content. Unfortunately, 
+        one cannot overlay an existing PDF using FPDF alone. To do this we use 
+        FPDI. There exists a handy extension to FPDF I'll call "cellfit.php" 
+        which automatically adjusts the font size and character spacing to fit 
+        text to the CELLs that one works with in FPDF. Unfortunately, 
+        cellfit.php needs to be modified to work with FPDI. But this 
+        modification is simple:
+
+            1. Include FPDI. (Add a "require_once('fpdi.php');" line)
+            2. Where cellfit.php's "FPDF_CellFit" class extends FDPF by default, 
+               change this to extend FPDI instead.
+
+        Since these three dependencies have permissive licenses, they've been
+        included in includes/FPDF.

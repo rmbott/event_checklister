@@ -21,7 +21,7 @@
         public $type;
         public $date;
         public $time;
-        public $url;
+        public $showpage_url;
 
         // Returns a contact object of the primary contect associated with the 
         // calling event.

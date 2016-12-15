@@ -138,27 +138,25 @@
         }
     }
 
-    // Escapes characters that have special significance in LaTeX
-    function latex_escape($string) {
-        $chars = ["\\", "&", "%", "$", "#", "_", "{", "}", "~", "^"];
-        foreach ($chars AS $char) {
-            $string = str_replace($char, "\\" . $char, $string);
-        }
-        return $string;
-    }
-
     // Check the the LIB_PATH directory for a class, before throwing a class 
-    // not found error.
+    // not found error. 
+    //      (Note: use of __autoload() should be changed to  
+    //      spl_autoload_register(). 
+    //              see: http://php.net/manual/en/language.oop5.autoload.php)
+    //
     function __autoload($class_name) {
         $class_name = strtolower($class_name);
-        $path = LIB_PATH . DS . "{$class_name}.php";
-        if (file_exists($path)) {
-            require_once($path);
+        $lib = LIB_PATH . DS . "{$class_name}.php";
+        $fpdf = LIB_PATH . DS . "FPDF" . DS . "{$class_name}.php";
+        if (file_exists($lib)) {
+            require_once($lib);
+        } elseif (file_exists($fpdf)) { 
+            // Check the LIB_PATH/FPDF path too
+            require_once($fpdf);
         } else {
             die("The file {$class_name}.php could not be found.");
         }
     }
-
 
     // like substr_replace() but does nothing if substring cannot be found
     function str_lreplace($string, $search, $replace) {
@@ -175,4 +173,5 @@
     function sql_quotes($string) {
         return (is_numeric($string)) ? $string : "'" . $string . "'";
     }
+
 ?>
