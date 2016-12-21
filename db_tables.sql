@@ -57,6 +57,33 @@ CREATE TABLE `events` (
 
 INSERT INTO `events` VALUES (1,320,1,'2017-02-02','18:30:00.0','https://www.pamperedchef.com/go/abc'),(2,99,2,'2017-02-03','18:00:00.0','https://www.pamperedchef.com/go/def'),(3,251,1,'2017-02-04','19:00:00.0','https://www.pamperedchef.com/go/ghi');
 
+--
+-- Create the event_sets table
+--
+
+DROP TABLE IF EXISTS `event_sets`;
+CREATE TABLE `event_sets` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `name` VARCHAR(50)  NOT NULL,
+  `favorite` BOOLEAN DEFAULT 0 NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+--
+-- Create the event_sets_events table
+--
+
+DROP TABLE IF EXISTS `event_sets_events`;
+CREATE TABLE `event_sets_events` ( 
+  `event_sets_id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  KEY `event_sets_id` (`event_sets_id`),
+  KEY `event_id` (`event_id`) 
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 --
 -- Create the contacts table
