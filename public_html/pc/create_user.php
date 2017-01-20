@@ -65,7 +65,7 @@
             <div class="col-sm-10">
                 <input class="form-control"  type="text" name="email" id="email" value="<?php echo keep_form_field('email'); ?>">
             </div>
-            <div class="" id="user_sec">
+            <div class="" id="name_sec">
                 <label class="col-sm-2 control-label" for="username">Pick a username</label>
                 <div class="col-sm-10">
                     <input class="form-control" type="text" name="username" id="username" value="<?php echo keep_form_field('username'); ?>">

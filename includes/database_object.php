@@ -36,6 +36,11 @@
             }
             return $object_array;
         }
+        
+        public static function exists_by_id($id = 0) {
+            $result_array = static::find_by_id($id);
+            return !empty($result_array);
+        }
 
         private function has_attribute($attribute) {
             $object_vars = get_object_vars($this);

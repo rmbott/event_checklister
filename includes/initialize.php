@@ -40,4 +40,4 @@
     require_once(LIB_PATH.DS."table.php");
     require_once(LIB_PATH.DS."dashboard_element.php");
     require_once(LIB_PATH.DS."validation_functions.php");
-?>
+    require_once(LIB_PATH.DS."event_set.php");

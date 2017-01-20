@@ -78,9 +78,9 @@ CREATE TABLE `event_sets` (
 
 DROP TABLE IF EXISTS `event_sets_events`;
 CREATE TABLE `event_sets_events` ( 
-  `event_sets_id` int(11) NOT NULL,
+  `event_set_id` int(11) NOT NULL,
   `event_id` int(11) NOT NULL,
-  KEY `event_sets_id` (`event_sets_id`),
+  KEY `event_set_id` (`event_set_id`),
   KEY `event_id` (`event_id`) 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

@@ -106,4 +106,26 @@ table td {margin: 0; padding: 0;}
     margin: 1em 0; padding: 1em;
 }
 
+.event-set-favorites {
+    border: 2px solid #333333;
+    font-weight: bold;
+    margin: 1em 0; padding: 0em;
+}
+
+.event-set-favorites a:link { color: #333333; }
+.event-set-favorites a:visited { color: #333333; }
+.event-set-favorites a:hover { color: #333333; }
+.event-set-favorites a:active { color: #333333; }
+
+.contact-set-favorites {
+    border: 2px solid #999999;
+    font-weight: bold;
+    margin: 1em 0; padding: 0em;
+}
+
+.contact-set-favorites a:link { color: #999999; }
+.contact-set-favorites a:visited { color: #999999; }
+.contact-set-favorites a:hover { color: #999999; }
+.contact-set-favorites a:active { color: #999999; }
+
 

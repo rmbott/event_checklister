@@ -150,7 +150,7 @@
         $fpdf = LIB_PATH . DS . "FPDF" . DS . "{$class_name}.php";
         if (file_exists($lib)) {
             require_once($lib);
-        } elseif (file_exists($fpdf)) { 
+        } elseif (file_exists($fpdf)) {
             // Check the LIB_PATH/FPDF path too
             require_once($fpdf);
         } else {
@@ -174,4 +174,27 @@
         return (is_numeric($string)) ? $string : "'" . $string . "'";
     }
 
-?>
+    /*
+     * Replaces the last occuring "AND" with a ")" in a string. Useful for 
+     * fixing SQL syntax.
+     * 
+     * @parameter String
+     * @returns String
+     */
+
+    function replace_trailing_AND($string) {
+        return str_lreplace($string, "AND", ")");
+    }
+
+    /*
+     * Replaces the last occuring "OR" with a ")" in a string. Useful for 
+     * fixing SQL syntax.
+     * 
+     * @parameter String
+     * @returns String
+     */
+
+    function replace_trailing_OR($string) {
+        return str_lreplace($string, "OR", ")");
+    }
+    

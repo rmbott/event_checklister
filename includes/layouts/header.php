@@ -26,9 +26,3 @@
                 </div>
             </div>
         </header>
-        <ul class="nav nav-pills">
-            <li><a href="dashboard.php">Dashboard</a></li>
-            <li><a href="create_event_contact.php">Create Event</a></li>
-            <li><a href="import_contacts.php">Import Contacts</a></li>
-            <li><a href="logout.php">Logout</a></li>
-        </ul>

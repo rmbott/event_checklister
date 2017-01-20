@@ -10,6 +10,7 @@
      * Models a row of the dashboard. That is a representative but incomplete 
      * summary of an event with it's associated primary contact. 
      */
+
     class DashboardElement extends DatabaseObject {
 
         protected static $table_name = JOIN_EVENTS_CONTACTS;
@@ -28,6 +29,31 @@
         public $zip;
         public $showpage_url;
 
+        /**
+         * Returns dashbord elements for the events contained in a given event 
+         * set. Useful for constructing a table and displaying the contents of
+         * an event set.
+         * 
+         * @global Object $session
+         * @param Int $id
+         * @return Array of DashboardElement
+         */
+        public static function find_by_event_set_id($id) {
+            global $session;
+
+            $event_set = EventSet::find_by_id($id);
+            if ($ids = $event_set->get_event_ids()) {
+                $sql = "SELECT * FROM " . self::$table_name;
+                $sql .= " WHERE " . self::$sql_user_id . " = " . $session->user_id;
+                $sql .= " AND (";
+                foreach ($ids AS $event_id) {
+                    $sql .= " events.id = " . $event_id . " OR";
+                }
+                $sql = replace_trailing_OR($sql);
+                return DashboardElement::find_by_sql($sql);
+            }
+            return null;
+        }
 
     }
     

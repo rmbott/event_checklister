@@ -107,7 +107,7 @@
                     $sql .= $key . " = " . sql_quotes($database->escape_string_query($value)) . " AND ";
                 }
             }
-            $sql = $this->replace_trailing_AND($sql);
+            $sql = replace_trailing_AND($sql);
             
             if ($row = $database->fetch_assoc($database->query($sql))) {
                 return $row['id']; //use the first duplicate id found
@@ -115,18 +115,6 @@
                 return false;
             }
         }
-
-        /*
-         * A helper function for: is_in_the_database(). Replaces the last 
-         * occuring "AND" with a ")" to fix the SQL syntax.
-         * @parameter $string
-         * @returns $string
-         */
-
-        private function replace_trailing_AND($string) {
-            return str_lreplace($string, "AND", ")");
-        }
-
         
         // Updates an existing row in the database. 
         public function update() {
