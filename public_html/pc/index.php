@@ -18,7 +18,6 @@ switch($module) {
 		$controller = new UserController($session);
 		break;
     default:
-        $controller = new DefaultController();
+        $controller = new DefaultController($session);
 }
-
-$controller->run($action, $id);
+$controller->run($action, $id, $session);

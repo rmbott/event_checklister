@@ -1,3 +1,11 @@
+<?php 
+	// Messages
+    echo $session->message();
+
+    // Errors
+    echo $session->error();
+?>
+
 <!DOCTYPE html>
 <html>
 <body>

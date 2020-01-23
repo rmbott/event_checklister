@@ -28,26 +28,24 @@
 	error_reporting(E_ALL);
 
     // Site Root Path
-    defined('SITE_ROOT') ? null : define('SITE_ROOT', 'C:'.DS.'wamp64'.DS.'www'.DS.'ec2');
+    defined('SITE_ROOT') ? null : define('SITE_ROOT', 'C:'.DS.'wamp64'.DS.'www'.DS.'event_checklister');
     
     // Library Path
-    defined('LIB_PATH') ? null : define('LIB_PATH', 'C:'.DS.'wamp64'.DS.'www'.DS.'ec2'.DS.'library');
+    defined('LIB_PATH') ? null : define('LIB_PATH', 'C:'.DS.'wamp64'.DS.'www'.DS.'event_checklister'.DS.'library');
 	
 	// Controller Path
-    defined('CONTROLLERS_PATH') ? null : define('CONTROLLERS_PATH', 'C:'.DS.'wamp64'.DS.'www'.DS.'ec2'.DS.'controllers');
+    defined('CONTROLLERS_PATH') ? null : define('CONTROLLERS_PATH', 'C:'.DS.'wamp64'.DS.'www'.DS.'event_checklister'.DS.'controllers');
 	
 	// Models Path
-    defined('MODELS_PATH') ? null : define('MODELS_PATH', 'C:'.DS.'wamp64'.DS.'www'.DS.'ec2'.DS.'models');
+    defined('MODELS_PATH') ? null : define('MODELS_PATH', 'C:'.DS.'wamp64'.DS.'www'.DS.'event_checklister'.DS.'models');
 	
 	// Views Path
-    defined('VIEWS_PATH') ? null : define('VIEWS_PATH', 'C:'.DS.'wamp64'.DS.'www'.DS.'ec2'.DS.'views');
+    defined('VIEWS_PATH') ? null : define('VIEWS_PATH', 'C:'.DS.'wamp64'.DS.'www'.DS.'event_checklister'.DS.'views');
 
 	require_once(LIB_PATH.DS."functions.php");
 	require_once(LIB_PATH.DS."session.php");
 	require_once(CONTROLLERS_PATH.DS."default_controller.php");
-	require_once(CONTROLLERS_PATH.DS."number_controller.php");
 	require_once(CONTROLLERS_PATH.DS."user_controller.php");
-	require_once(MODELS_PATH.DS."number_model.php");
 	require_once(MODELS_PATH.DS."user.php");
     require_once(LIB_PATH.DS."db_config.php");
     require_once(MODELS_PATH.DS."database.php");
