@@ -8,8 +8,11 @@
 
 <!DOCTYPE html>
 <html>
+ <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head> 
 <body>
-    <form class="form-horizontal" action="index.php?a=view&m=login" method="post">
+    <form class="form-horizontal" action="index.php?a=login&m=user" method="post">
         <div class="form-group">
             <label class="col-sm-2 control-label" for="username">Username</label>
             <div class="col-sm-10">

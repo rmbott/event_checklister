@@ -21,7 +21,6 @@ class UserController extends DefaultController
 		
 		// Validation
 		if (isset($_POST['submit'])) {
-			print_r($_POST['submit']);
 			
 			$required_fields = ['username', 'password'];
 			validate_presences($required_fields);
@@ -49,7 +48,6 @@ class UserController extends DefaultController
 			}
 		}
 		$session = $this->session;
-		print_r($session);
         include_once(VIEWS_PATH.DS.'login.php');
     }
 }

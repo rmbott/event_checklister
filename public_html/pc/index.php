@@ -11,13 +11,12 @@ $module = isset($_GET['m']) ? $_GET['m'] : '';
 $id     = isset($_GET['id']) ? $_GET['id'] : '';
 
 switch($module) {
-    //case 'number':
-    //    $controller = new NumberController();
-    //    break;
+
 	case 'user':
 		$controller = new UserController($session);
 		break;
     default:
         $controller = new DefaultController($session);
 }
+
 $controller->run($action, $id, $session);
