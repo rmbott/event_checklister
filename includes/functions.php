@@ -138,13 +138,11 @@
         }
     }
 
-    // Check the the LIB_PATH directory for a class, before throwing a class 
-    // not found error. 
-    //      (Note: use of __autoload() should be changed to  
-    //      spl_autoload_register(). 
-    //              see: http://php.net/manual/en/language.oop5.autoload.php)
-    //
-    function __autoload($class_name) {
+    // Autoloader
+    spl_autoload_register(function ($class_name) {
+        $class_name = strtolower($class_name);
+        $lib = LIB_PATH . DS . "{$class_name}.php";
+        $fpdf = LIB_PATH . DS . "FPDF" . DS . "{$class_name}.php";
         $class_name = strtolower($class_name);
         $lib = LIB_PATH . DS . "{$class_name}.php";
         $fpdf = LIB_PATH . DS . "FPDF" . DS . "{$class_name}.php";
@@ -156,7 +154,7 @@
         } else {
             die("The file {$class_name}.php could not be found.");
         }
-    }
+    });
 
     // like substr_replace() but does nothing if substring cannot be found
     function str_lreplace($string, $search, $replace) {
