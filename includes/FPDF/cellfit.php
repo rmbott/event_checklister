@@ -1,20 +1,21 @@
 <?php
-require_once('fpdf.php');
-require_once('fpdi.php');
 
-class FPDF_CellFit extends FPDI {
+use setasign\Fpdi\Fpdi;
 
+require_once('vendor/setasign/fpdf/fpdf.php');
+
+class FPDF_CellFit extends Fpdi
+{
     //Cell with horizontal scaling if text is too wide
-    public function CellFit($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=false, $link='', $scale=false, $force=true)
+    function CellFit($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=false, $link='', $scale=false, $force=true)
     {
         //Get string width
         $str_width=$this->GetStringWidth($txt);
 
         //Calculate ratio to fit cell
-        if ($w == 0) {
-                $w = $this->w - $this->rMargin - $this->x;
-            }
-            $ratio = ($w-$this->cMargin*2)/$str_width;
+        if($w==0)
+            $w = $this->w-$this->rMargin-$this->x;
+        $ratio = ($w-$this->cMargin*2)/$str_width;
 
         $fit = ($ratio < 1 || ($ratio > 1 && $force));
         if ($fit)
@@ -29,7 +30,7 @@ class FPDF_CellFit extends FPDI {
             else
             {
                 //Calculate character spacing in points
-                $char_space=($w-$this->cMargin*2-$str_width)/max($this->MBGetStringLength($txt)-1,1)*$this->k;
+                $char_space=($w-$this->cMargin*2-$str_width)/max(strlen($txt)-1,1)*$this->k;
                 //Set character spacing
                 $this->_out(sprintf('BT %.2F Tc ET',$char_space));
             }
@@ -41,10 +42,9 @@ class FPDF_CellFit extends FPDI {
         $this->Cell($w,$h,$txt,$border,$ln,$align,$fill,$link);
 
         //Reset character spacing/horizontal scaling
-        if ($fit) {
-                $this->_out('BT ' . ($scale ? '100 Tz' : '0 Tc') . ' ET');
-            }
-        }
+        if ($fit)
+            $this->_out('BT '.($scale ? '100 Tz' : '0 Tc').' ET');
+    }
 
     //Cell with horizontal scaling only if necessary
     function CellFitScale($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=false, $link='')
@@ -70,26 +70,4 @@ class FPDF_CellFit extends FPDI {
         //Same as calling CellFit directly
         $this->CellFit($w,$h,$txt,$border,$ln,$align,$fill,$link,false,true);
     }
-
-    //Patch to also work with CJK double-byte text
-    function MBGetStringLength($s)
-    {
-        if ($this->CurrentFont['type'] == 'Type0') {
-                $len = 0;
-                $nbbytes = strlen($s);
-                for ($i = 0; $i < $nbbytes; $i++) {
-                    if (ord($s[$i]) < 128) {
-                        $len++;
-                    } else {
-                        $len++;
-                        $i++;
-                    }
-                }
-                return $len;
-            } else {
-                return strlen($s);
-            }
-        }
-
 }
-?>

@@ -3,13 +3,19 @@
     if (!$session->is_logged_in()) {
         redirect_to("login.php");
     }
+    
 
     /*
      * Updates an event along with a primary contact for that event.
      */
-
-    if (isset($_GET['submit'])) {
-        
+    
+    if (isset($_GET['submit']) && sizeOf($_GET) < 2) {
+        $session->add_error("At least one event must be selected.");
+        redirect_to("dashboard.php"); 
+    } else {
+        echo "<h2>";
+        print_r($_GET);
+        echo "</h2>";
 // Get Events from ids POSTed from corresponding DashboardElements
         $events = [];
         foreach ($_GET AS $id => $value) {
@@ -17,7 +23,6 @@
                 $events[] = Event::find_by_id($id);
             }
         }
-
         $events_contacts = [];
         foreach ($events AS $event) {
             $events_contacts[] = ["event" => $event, "contact" => $event->get_primary_contact()];
@@ -88,6 +93,7 @@
                 $session->add_message("Contact update failed.");
             }
         }
+        redirect_to("dashboard.php");
 
         // This is probably a GET request
     } // end: if (isset($_POST['submit']))

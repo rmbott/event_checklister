@@ -142,10 +142,7 @@
     spl_autoload_register(function ($class_name) {
         $class_name = strtolower($class_name);
         $lib = LIB_PATH . DS . "{$class_name}.php";
-        $fpdf = LIB_PATH . DS . "FPDF" . DS . "{$class_name}.php";
-        $class_name = strtolower($class_name);
-        $lib = LIB_PATH . DS . "{$class_name}.php";
-        $fpdf = LIB_PATH . DS . "FPDF" . DS . "{$class_name}.php";
+        $fpdf = LIB_PATH . DS . "FPDF/vendor/setasign/fpdi/src" . DS . "{$class_name}.php";
         if (file_exists($lib)) {
             require_once($lib);
         } elseif (file_exists($fpdf)) {
@@ -155,6 +152,9 @@
             die("The file {$class_name}.php could not be found.");
         }
     });
+
+
+
 
     // like substr_replace() but does nothing if substring cannot be found
     function str_lreplace($string, $search, $replace) {
