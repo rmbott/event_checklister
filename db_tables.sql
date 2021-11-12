@@ -26,14 +26,14 @@ CREATE TABLE `users` (
 
 --
 -- Dumping data for users table
--- (plaintext passwords for alice, jane, and bob are 'tmppassword', 'secret', 
+-- (plaintext passwords for alice, jane, and betty are 'tmppassword', 'secret', 
 -- and 'spot' respectively.)
 --
 
 INSERT INTO `users` VALUES
   (1,'alice','$2y$10$8kshpRWyHV0L28/04dIj9uL0rnQ1kB3FcYgkDYiQB4u6Vsj7Qrky2','alice@gmail.com',4, 'ba17c87dd0ed1b39b4a8321561fb39f4'),
   (2,'jane','$2y$10$FkumYaoumhAS0UG3pQR7Su9eE4CNSN924ZI9U4WRDx0N3XRsUxHTC','jane@aol.com',4,'368696148f319fde5ff4c88939a479e2'),
-  (3,'betty','$2y$10$Z/ow6kXyOkeipqmNElHpqOO9PHp0oE.qIL/oB2fLGW.pDs5cetnJi','betty1@hotmail.com',5,'89e4b1189f02aeaf692a06464d75a773');
+  (3,'betty','$2y$10$Z/ow6kXyOkeipqmNElHpqOO9PHp0oE.qIL/oB2fLGW.pDs5cetnJi','betty1@hotmail.com',4,'89e4b1189f02aeaf692a06464d75a773');
 
 --
 -- Create the events table
@@ -55,7 +55,7 @@ CREATE TABLE `events` (
 -- Dumping data for events table
 --
 
-INSERT INTO `events` VALUES (1,320,1,'2017-02-02','18:30:00.0','https://www.pamperedchef.com/go/abc'),(2,99,2,'2017-02-03','18:00:00.0','https://www.pamperedchef.com/go/def'),(3,251,1,'2017-02-04','19:00:00.0','https://www.pamperedchef.com/go/ghi');
+INSERT INTO `events` VALUES (1,1,1,'2017-02-02','18:30:00.0','https://www.pamperedchef.com/go/abc'),(2,1,2,'2017-02-03','18:00:00.0','https://www.pamperedchef.com/go/def'),(3,1,1,'2017-02-04','19:00:00.0','https://www.pamperedchef.com/go/ghi'),(4,2,1,'2017-02-02','18:30:00.0','https://www.pamperedchef.com/go/abc'),(5,2,2,'2017-02-03','18:00:00.0','https://www.pamperedchef.com/go/def'),(6,2,1,'2017-02-04','19:00:00.0','https://www.pamperedchef.com/go/ghi'),(7,3,1,'2017-02-02','18:30:00.0','https://www.pamperedchef.com/go/abc'),(8,3,2,'2017-02-03','18:00:00.0','https://www.pamperedchef.com/go/def'),(9,3,1,'2017-02-04','19:00:00.0','https://www.pamperedchef.com/go/ghi');
 
 --
 -- Create the event_sets table
@@ -114,7 +114,7 @@ CREATE TABLE `contacts` (
 -- Dumping data for contacts table
 --
 
-INSERT INTO `contacts` VALUES (1,2,'Jane','Doe','jane@aol.com','570-445-0909',NULL,NULL,'123 Main St.',NULL,NULL,'Newberg','PA','17332','https://www.google.com/go/abc'),(2,1,'Betty','Khan','jman@hotmail.com',NULL,'610-818-1234',NULL,'1 Applewood Ln.','Apt. 33B',NULL,'York','PA','19999','https://www.google.com/go/def'),(3,1,'Carl','Borax','hesper@trump.com',NULL,NULL,'717-766-8132','665 West Chestertonville St.','RR1','(under the bridge)','Kingsbury','AK','07734','https://www.google.com/go/ghi');
+INSERT INTO `contacts` VALUES (1,1,'Jane','Doe','jane@aol.com','570-445-0909',NULL,NULL,'123 Main St.',NULL,NULL,'Newberg','PA','17332','https://www.google.com/go/abc'),(2,1,'Betty','Khan','jman@hotmail.com',NULL,'610-818-1234',NULL,'1 Applewood Ln.','Apt. 33B',NULL,'York','PA','19999','https://www.google.com/go/def'),(3,1,'Carl','Borax','hesper@trump.com',NULL,NULL,'717-766-8132','665 West Chestertonville St.','RR1','(under the bridge)','Kingsbury','AK','07734','https://www.google.com/go/ghi'),(4,2,'Jane','Doe','jane@aol.com','570-445-0909',NULL,NULL,'123 Main St.',NULL,NULL,'Newberg','PA','17332','https://www.google.com/go/abc'),(5,2,'Betty','Khan','jman@hotmail.com',NULL,'610-818-1234',NULL,'1 Applewood Ln.','Apt. 33B',NULL,'York','PA','19999','https://www.google.com/go/def'),(6,2,'Carl','Borax','hesper@trump.com',NULL,NULL,'717-766-8132','665 West Chestertonville St.','RR1','(under the bridge)','Kingsbury','AK','07734','https://www.google.com/go/ghi'),(7,3,'Jane','Doe','jane@aol.com','570-445-0909',NULL,NULL,'123 Main St.',NULL,NULL,'Newberg','PA','17332','https://www.google.com/go/abc'),(8,3,'Betty','Khan','jman@hotmail.com',NULL,'610-818-1234',NULL,'1 Applewood Ln.','Apt. 33B',NULL,'York','PA','19999','https://www.google.com/go/def'),(9,3,'Carl','Borax','hesper@trump.com',NULL,NULL,'717-766-8132','665 West Chestertonville St.','RR1','(under the bridge)','Kingsbury','AK','07734','https://www.google.com/go/ghi');
 
 
 --
@@ -135,9 +135,14 @@ CREATE TABLE `events_contacts` (
 
 INSERT INTO `events_contacts` VALUES
   (1,1),
-  (2,1),
   (2,2),
-  (3,3);
+  (3,3),
+  (4,4),
+  (5,5),
+  (6,6),
+  (7,7),
+  (8,8),
+  (9,9);
 
 
 
